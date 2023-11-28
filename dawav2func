@@ -1,0 +1,48 @@
+<?php
+$conn = new mysqli("localhost", "seu_usuario", "sua_senha", "seu_banco_de_dados");
+
+function cadastrarCandidato($nome, $cpf, $identidade, $email, $cargo, $sala) {
+    global $conn;
+    $sql = "INSERT INTO candidatos (nome, cpf, identidade, email, cargo_pretendido, sala_prova) VALUES ('$nome', '$cpf', '$identidade', '$email', '$cargo', $sala)";
+   
+}
+
+function listarCandidatosPorSala($sala) {
+    global $conn;
+    $query = "SELECT * FROM candidatos WHERE sala_prova = $sala ORDER BY nome LIMIT 50";
+    $result = $conn->query($query);
+
+    $candidatos = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $candidatos[] = $row;
+        }
+    }
+    return $candidatos;
+}
+
+function incluirFiscal($nome, $cpf, $sala) {
+    global $conn;
+    $query = "INSERT INTO fiscais (nome, cpf, sala_prova) VALUES ('$nome', '$cpf', $sala)";
+   
+
+function alterarSalaCandidato($idCandidato, $novaSala) {
+    global $conn;
+    $query = "UPDATE candidatos SET sala_prova = $novaSala WHERE id = $idCandidato";
+}
+?>
+<script>
+function cadastrarCandidato() {
+
+  echo = "index.php";
+  
+    var nome = document.getElementById("nome").value;
+    var cpf = document.getElementById("cpf").value;
+    var identidade = document.getElementById("identidade").value;
+    var email = document.getElementById("email").value;
+    var cargo = document.getElementById("cargo").value;
+    var sala = document.getElementById("sala").value;
+
+</script>
+}
+  
