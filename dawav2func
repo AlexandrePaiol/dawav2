@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "seu_usuario", "sua_senha", "seu_banco_de_dados");
+$conn = new mysqli("localhost");
 
 function cadastrarCandidato($nome, $cpf, $identidade, $email, $cargo, $sala) {
     global $conn;
@@ -31,18 +31,4 @@ function alterarSalaCandidato($idCandidato, $novaSala) {
     $query = "UPDATE candidatos SET sala_prova = $novaSala WHERE id = $idCandidato";
 }
 ?>
-<script>
-function cadastrarCandidato() {
 
-  echo = "index.php";
-  
-    var nome = document.getElementById("nome").value;
-    var cpf = document.getElementById("cpf").value;
-    var identidade = document.getElementById("identidade").value;
-    var email = document.getElementById("email").value;
-    var cargo = document.getElementById("cargo").value;
-    var sala = document.getElementById("sala").value;
-
-</script>
-}
-  
